@@ -14,17 +14,14 @@ type Character = {
 const CharacterDescription: FunctionalComponent<{ character: Character }> = ({ character }) => (
     <div class="character-description">
         <h2>{character.name}</h2>
+          
         {character.image && <img src={character.image} alt={character.name} />}
-        {character.house && <p>Casa: {character.house}</p>}
+        {character.house && (<p>Casa: <a href={`/house/${character.house}`}> {character.house} </a> </p> )}        
         {character.species && <p>Especie: {character.species}</p>}
         {character.patronus && <p>Patronus: {character.patronus}</p>}
         {character.gender && <p>Género: {character.gender}</p>}
         {character.alternate_names && character.alternate_names.length > 0 && (
-            <p>
-                Nombres alternativos: {character.alternate_names.join(", ")}
-            </p>
-        )}
-
+            <p> Nombres alternativos: {character.alternate_names.join(", ")} </p> )}
     </div>
 );
 export default CharacterDescription;

@@ -1,6 +1,7 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import CharactersList from "../../components/CharacterList.tsx";
 import axios from "npm:axios"; 
+import CharacterForm from "../../islands/CharacterForm.tsx";
 
 type Character = {
     id: string;
@@ -22,8 +23,11 @@ export const handler: Handlers<{ characters: Character[] }> = {
 const Page = (props: PageProps<{ characters: Character[] }>) => (
     <div>
         <h1 class="title"> Personajes de Harry Potter</h1>
-        <CharactersList characters={props.data.characters} />
+          <CharacterForm characters={props.data.characters} />
     </div>
 );
+
+        //<CharactersList characters={props.data.characters} />
+
 
 export default Page;
